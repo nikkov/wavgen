@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SineGen", "SineGen.vcxproj", "{FAE29035-75E4-4F76-BF2D-B3537B0BF9CC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D18EA0C9-8C65-441D-884C-55EB43A84F2A} = {D18EA0C9-8C65-441D-884C-55EB43A84F2A}
+		{BF95DBD0-BA57-4F54-A435-AFD33A9C794D} = {BF95DBD0-BA57-4F54-A435-AFD33A9C794D}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "coredsp", "lib\coredsp\coredsp.vcxproj", "{BF95DBD0-BA57-4F54-A435-AFD33A9C794D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "portaudiocpp", "lib\portaudiocpp\build\vc14\static_library.vcxproj", "{D18EA0C9-8C65-441D-884C-55EB43A84F2A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FAE29035-75E4-4F76-BF2D-B3537B0BF9CC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FAE29035-75E4-4F76-BF2D-B3537B0BF9CC}.Debug|Win32.Build.0 = Debug|Win32
+		{FAE29035-75E4-4F76-BF2D-B3537B0BF9CC}.Release|Win32.ActiveCfg = Release|Win32
+		{FAE29035-75E4-4F76-BF2D-B3537B0BF9CC}.Release|Win32.Build.0 = Release|Win32
+		{BF95DBD0-BA57-4F54-A435-AFD33A9C794D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BF95DBD0-BA57-4F54-A435-AFD33A9C794D}.Debug|Win32.Build.0 = Debug|Win32
+		{BF95DBD0-BA57-4F54-A435-AFD33A9C794D}.Release|Win32.ActiveCfg = Release|Win32
+		{BF95DBD0-BA57-4F54-A435-AFD33A9C794D}.Release|Win32.Build.0 = Release|Win32
+		{D18EA0C9-8C65-441D-884C-55EB43A84F2A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D18EA0C9-8C65-441D-884C-55EB43A84F2A}.Debug|Win32.Build.0 = Debug|Win32
+		{D18EA0C9-8C65-441D-884C-55EB43A84F2A}.Release|Win32.ActiveCfg = Release|Win32
+		{D18EA0C9-8C65-441D-884C-55EB43A84F2A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
