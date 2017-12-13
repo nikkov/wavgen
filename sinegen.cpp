@@ -13,8 +13,7 @@
 #include <wx/spinctrl.h>
 
 #include "sinegen.h"
-#include "sinefunction.h"
-#include "constantfunction.h"
+#include "FunctionGenerator.h"
 #include "wave/wave.h"
 
 static double STANDARD_SAMPLE_RATES[] = {
@@ -79,8 +78,11 @@ BEGIN_EVENT_TABLE( SineGen, wxDialog )
 
     EVT_BUTTON( XRCID("ID_ADD_SINE_BUTTON"), SineGen::OnButtonAddSineClick )
     EVT_UPDATE_UI( XRCID("ID_ADD_SINE_BUTTON"), SineGen::OnButtonOutputStartUpdate )
-    EVT_BUTTON( XRCID("ID_DEL_SINE_BUTTON"), SineGen::OnButtonDelSineClick )
-    EVT_UPDATE_UI( XRCID("ID_DEL_SINE_BUTTON"), SineGen::OnButtonOutputStartUpdate )
+    EVT_BUTTON( XRCID("ID_DEL_COMP_BUTTON"), SineGen::OnButtonDelSineClick )
+    EVT_UPDATE_UI( XRCID("ID_DEL_COMP_BUTTON"), SineGen::OnButtonOutputStartUpdate )
+
+	EVT_BUTTON(XRCID("ID_ADD_CONST_BUTTON"), SineGen::OnButtonAddConstClick)
+	EVT_UPDATE_UI(XRCID("ID_ADD_CONST_BUTTON"), SineGen::OnButtonOutputStartUpdate)
 
 	EVT_COMMAND_SCROLL( XRCID("ID_AMPLITUDE_SLIDER"), SineGen::OnSliderAmpScrollCmd )
 	EVT_COMMAND_SCROLL( XRCID("ID_FREQUENCY_SLIDER"), SineGen::OnSliderFreqScrollCmd )
@@ -127,7 +129,6 @@ SineGen::SineGen( wxWindow* parent, wxWindowID id, const wxString& caption, cons
     Create(parent, id, caption, pos, size, style);
 }
 
-
 bool SineGen::Create( wxWindow* parent, wxWindowID id, const wxString& caption, const wxPoint& pos, const wxSize& size, long style )
 {
     SetExtraStyle(wxWS_EX_BLOCK_EVENTS);
@@ -141,7 +142,6 @@ bool SineGen::Create( wxWindow* parent, wxWindowID id, const wxString& caption, 
     return true;
 }
 
-
 SineGen::~SineGen()
 {
 	StopInput();
@@ -150,7 +150,6 @@ SineGen::~SineGen()
 	if(m_PaudioCl)
 		delete m_PaudioCl;
 }
-
 
 void SineGen::Init()
 {
@@ -165,7 +164,6 @@ void SineGen::Init()
 
 	m_functionGenerator = new FunctionGenerator(portaudio::INT16, 44100.0);
 }
-
 
 void SineGen::CreateControls()
 {    
@@ -197,6 +195,8 @@ void SineGen::CreateControls()
 		m_newSineAmpl = XRCCTRL(*this, "ID_NEW_SINE_AMPLITUDE", wxTextCtrl);
 		m_newSinePhase = XRCCTRL(*this, "ID_NEW_SINE_PHASE", wxTextCtrl);
 
+		m_newConstValue = XRCCTRL(*this, "ID_NEW_CONST_VALUE", wxTextCtrl);
+
 		m_frequencySlider = XRCCTRL(*this, "ID_FREQUENCY_SLIDER", wxSlider);
 		m_amplitudeSlider = XRCCTRL(*this, "ID_AMPLITUDE_SLIDER", wxSlider);
 		m_phaseSlider = XRCCTRL(*this, "ID_PHASE_SLIDER", wxSlider);
@@ -216,7 +216,6 @@ void SineGen::CreateControls()
 	FillInOutDevices();
 }
 
-
 bool SineGen::ShowToolTips()
 {
     return true;
@@ -234,12 +233,10 @@ wxIcon SineGen::GetIconResource( const wxString& name )
     return wxNullIcon;
 }
 
-
 void SineGen::OnChoiceOutDeviceSelected( wxCommandEvent& event )
 {
 	FillSampleFreqAndDepth(false);
 }
-
 
 void SineGen::OnChoiceInDeviceSelected( wxCommandEvent& event )
 {
@@ -258,7 +255,6 @@ void SineGen::OnSliderFreqScrollCmd( wxScrollEvent& event )
 		UpdateCurrentGeneratorValue(m_curSineFreq, value);
 }
 
-
 void SineGen::OnSliderAmpScrollCmd( wxScrollEvent& event )
 {
 	double value = m_amplitudeSlider->GetValue();
@@ -272,7 +268,6 @@ void SineGen::OnSliderPhaseScrollCmd( wxScrollEvent& event )
 	if(!m_valueChangedFromCode)
 		UpdateCurrentGeneratorValue(m_curSinePhase, value);
 }
-
 
 void SineGen::FillInOutDevices()
 {
@@ -399,7 +394,6 @@ void SineGen::FillSampleFreqAndDepth(bool isInput)
 	if(defaultFreqIndex >= 0)
 		comboFreq->Select(defaultFreqIndex);
 }
-
 
 bool SineGen::CreateOutputStream()
 {
@@ -562,7 +556,6 @@ bool SineGen::DestroyInputStream()
 		return false;
 }
 
-
 bool SineGen::StartOutput()
 {
 	if(!CreateOutputStream())
@@ -605,7 +598,6 @@ void SineGen::UpdateData(void* data, portaudio::SampleDataFormat format, int sam
 {
 	m_signalPanel->UpdateData(data, format, samples);
 }
-
 
 void SineGen::OnButtonOutputStartClick( wxCommandEvent& event )
 {
@@ -686,6 +678,42 @@ void SineGen::OnButtonAddSineClick( wxCommandEvent& event )
 	UpdateCurrentGeneratorValues();
 }
 
+void SineGen::OnButtonAddConstClick(wxCommandEvent& event)
+{
+	long value = 0x1000;
+	long sample_freq = 44100;
+	portaudio::SampleDataFormat out_format = portaudio::INT16;
+
+	m_choiceOutputFreq->GetString(m_choiceOutputFreq->GetCurrentSelection()).ToLong(&sample_freq);
+
+	switch (m_choiceOutputDepth->GetCurrentSelection())
+	{
+	case 0:
+		out_format = portaudio::INT16;
+		break;
+	case 1:
+		out_format = portaudio::INT24;
+		break;
+	case 2:
+		out_format = portaudio::INT32;
+		break;
+	}
+
+	value = strtol(m_newConstValue->GetValue().c_str(), NULL, 16);
+	//m_newConstValue->GetValue().ToLong(&value);
+
+	int index = m_functionGenerator->AddConst(value);
+
+	m_functionGenerator->SetFormat(index, out_format);
+	m_functionGenerator->SetSampleRate(index, sample_freq);
+	wxString newFunc = m_functionGenerator->FuncName(index);
+
+	m_componentsListBox->Append(newFunc);
+	m_componentsListBox->SetSelection(index);
+	UpdateCurrentGeneratorValues();
+}
+
+
 void SineGen::OnButtonDelSineClick( wxCommandEvent& event )
 {
 	int index = m_componentsListBox->GetSelection();
@@ -732,7 +760,6 @@ void SineGen::UpdateCurrentGeneratorValues()
 	}
 }
 
-
 void SineGen::UpdateCurrentGeneratorValue(wxTextCtrl* textCtrl, double value)
 {
 	textCtrl->SetValue(wxString::Format("%.3f", value));
@@ -749,7 +776,6 @@ void SineGen::UpdateCurrentGeneratorValue(wxTextCtrl* textCtrl, double value)
 		m_componentsListBox->SetString(index, m_functionGenerator->FuncName(index));
 	}
 }
-
 
 void SineGen::UpdateSliderValue(wxTextCtrl* textCtrl, wxSlider *sliderCtrl)
 {
@@ -771,7 +797,6 @@ void SineGen::UpdateSliderValue(wxTextCtrl* textCtrl, wxSlider *sliderCtrl)
 		m_valueChangedFromCode = false;
 	}
 }
-
 
 void SineGen::OnAmplitudeTextEnter( wxCommandEvent& )
 {
@@ -806,9 +831,9 @@ void SineGen::OnSpinCtrlMinScaleChange( wxSpinEvent& event )
 	m_signalPanel->SetYMinScale(value);
 }
 
-
 void SineGen::OnButtonSaveWavClick( wxCommandEvent& event )
 {
+#if 0
 	wxFileDialog openDlg(this, "Open file", wxEmptyString, wxEmptyString, "Log files (*.*)|*.*", wxFD_OPEN|wxFD_FILE_MUST_EXIST);
 	if(openDlg.ShowModal() == wxID_OK)
 	{
@@ -861,7 +886,14 @@ void SineGen::OnButtonSaveWavClick( wxCommandEvent& event )
 		delete lpData;
 		return;
 	}
-
+#endif
+	int durationFile = 30;
+	wxTextEntryDialog lengthDlg(this, "Input signal duration, seconds", "Input", "30");
+	lengthDlg.SetTextValidator(wxFILTER_DIGITS);
+	if (lengthDlg.ShowModal() == wxOK)
+	{
+		durationFile = atoi(lengthDlg.GetValue().c_str());
+	}
 
 	wxFileDialog dlg(this, "Save file as...", wxEmptyString, wxEmptyString, "WAV files (*.wav)|*.wav", wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
 
@@ -888,7 +920,6 @@ void SineGen::OnButtonSaveWavClick( wxCommandEvent& event )
 
 	if(dlg.ShowModal() == wxID_OK)
 	{
-		int durationFile = 30;
 		CWave* wav = new CWave();
 
 		wav->m_Format.sampleRate = m_functionGenerator->GetSampleRate();																// Sample Rate

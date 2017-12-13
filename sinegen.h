@@ -63,7 +63,7 @@ public:
     void OnButtonAddSineClick( wxCommandEvent& event );
     void OnButtonDelSineClick( wxCommandEvent& event );
     void OnButtonSaveWavClick( wxCommandEvent& event );
-
+	void OnButtonAddConstClick(wxCommandEvent& event);
 
     void OnButtonInputStartClick( wxCommandEvent& event );
     void OnButtonInputStartUpdate( wxUpdateUIEvent& event );
@@ -115,6 +115,8 @@ private:
 	wxTextCtrl* m_newSineFreq;
 	wxTextCtrl* m_newSineAmpl;
 	wxTextCtrl* m_newSinePhase;
+
+	wxTextCtrl* m_newConstValue;
 
 	wxSlider *m_frequencySlider;
 	wxSlider *m_amplitudeSlider;

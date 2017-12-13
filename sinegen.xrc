@@ -1,582 +1,528 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <resource xmlns="http://www.wxwindows.org/wxxrc" version="2.3.0.1">
 	<object class="wxDialog" name="ID_SINEGEN">
-		<style>wxCAPTION|wxRESIZE_BORDER|wxSYSTEM_MENU|wxCLOSE_BOX</style>
-		<exstyle>wxWS_EX_BLOCK_EVENTS</exstyle>
-		<size>684,625</size>
 		<title>SineGen</title>
 		<centered>1</centered>
+		<size>612,576</size>
+		<style>wxCAPTION|wxSYSTEM_MENU|wxRESIZE_BORDER|wxCLOSE_BOX</style>
+		<exstyle>wxWS_EX_BLOCK_EVENTS</exstyle>
 		<object class="wxBoxSizer">
-			<orient>wxHORIZONTAL</orient>
 			<object class="sizeritem">
-				<option>0</option>
-				<flag>wxEXPAND</flag>
-				<border>5</border>
 				<object class="wxNotebook" name="ID_NOTEBOOK">
-					<style>wxBK_DEFAULT|wxNO_BORDER</style>
+					<style>wxNO_BORDER</style>
 					<object class="notebookpage">
-						<label>Main</label>
-						<selected>1</selected>
 						<object class="wxPanel" name="ID_PANEL_MAIN">
 							<style>wxNO_BORDER|wxTAB_TRAVERSAL</style>
 							<object class="wxBoxSizer">
 								<orient>wxVERTICAL</orient>
 								<object class="sizeritem">
-									<option>0</option>
-									<flag>wxEXPAND|wxALL</flag>
-									<border>5</border>
 									<object class="wxStaticBoxSizer">
-										<orient>wxHORIZONTAL</orient>
 										<label>Output</label>
 										<object class="sizeritem">
-											<option>0</option>
-											<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
-											<border>5</border>
 											<object class="wxButton" name="ID_BUTTON_OUTPUT_START">
 												<label>Start</label>
-												<default>0</default>
 											</object>
+											<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
 										</object>
 										<object class="sizeritem">
-											<option>0</option>
-											<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
-											<border>5</border>
 											<object class="wxButton" name="ID_BUTTON_OUTPUT_STOP">
 												<label>Stop</label>
-												<default>0</default>
 											</object>
+											<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
 										</object>
 									</object>
-								</object>
-								<object class="sizeritem">
-									<option>0</option>
-									<flag>wxGROW|wxALL</flag>
-									<border>5</border>
-									<object class="wxStaticBoxSizer">
-										<orient>wxHORIZONTAL</orient>
-										<label>Input</label>
-										<object class="sizeritem">
-											<option>0</option>
-											<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
-											<border>5</border>
-											<object class="wxButton" name="ID_BUTTON_INPUT_START">
-												<label>Start</label>
-												<default>0</default>
-											</object>
-										</object>
-										<object class="sizeritem">
-											<option>0</option>
-											<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
-											<border>5</border>
-											<object class="wxButton" name="ID_BUTTON_INPUT_STOP">
-												<label>Stop</label>
-												<default>0</default>
-											</object>
-										</object>
-									</object>
-								</object>
-								<object class="sizeritem">
-									<option>0</option>
-									<flag>wxGROW</flag>
-									<border>5</border>
-									<object class="wxBoxSizer">
-										<orient>wxHORIZONTAL</orient>
-										<object class="sizeritem">
-											<option>0</option>
-											<flag>wxALL</flag>
-											<border>5</border>
-											<object class="wxCheckBox" name="ID_CHECKBOX_WAVEFORM">
-												<label>Show waveform</label>
-												<checked>0</checked>
-											</object>
-										</object>
-										<object class="sizeritem">
-											<option>0</option>
-											<flag></flag>
-											<border>5</border>
-											<object class="wxButton" name="ID_BUTTON_SAVE_WAV">
-												<label>Save sample</label>
-												<default>0</default>
-											</object>
-										</object>
-									</object>
-								</object>
-								<object class="sizeritem">
-									<option>1</option>
 									<flag>wxALL|wxEXPAND</flag>
 									<border>5</border>
+								</object>
+								<object class="sizeritem">
 									<object class="wxStaticBoxSizer">
-										<orient>wxVERTICAL</orient>
-										<label>Components list</label>
+										<label>Input</label>
 										<object class="sizeritem">
-											<option>1</option>
-											<flag>wxALL|wxEXPAND</flag>
-											<border>5</border>
-											<object class="wxListBox" name="ID_LIST_COMPONENTS">
-												<style>wxLB_SINGLE</style>
-												<content />
+											<object class="wxButton" name="ID_BUTTON_INPUT_START">
+												<label>Start</label>
 											</object>
+											<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
 										</object>
 										<object class="sizeritem">
-											<option>0</option>
-											<flag>wxEXPAND</flag>
-											<border>5</border>
-											<object class="wxBoxSizer">
-												<orient>wxHORIZONTAL</orient>
+											<object class="wxButton" name="ID_BUTTON_INPUT_STOP">
+												<label>Stop</label>
 											</object>
-										</object>
-										<object class="sizeritem">
-											<option>0</option>
-											<flag>wxALL|wxEXPAND</flag>
+											<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
 											<border>5</border>
-											<object class="wxStaticBoxSizer">
-												<orient>wxVERTICAL</orient>
-												<label>New sine</label>
-												<object class="sizeritem">
-													<option>1</option>
-													<flag>wxEXPAND</flag>
-													<border>0</border>
-													<object class="wxBoxSizer">
-														<orient>wxHORIZONTAL</orient>
-														<object class="sizeritem">
-															<option>1</option>
-															<flag>wxEXPAND</flag>
-															<border>0</border>
-															<object class="wxBoxSizer">
-																<orient>wxVERTICAL</orient>
-																<object class="sizeritem">
-																	<option>0</option>
-																	<flag>wxALL</flag>
-																	<border>5</border>
-																	<object class="wxButton" name="ID_ADD_SINE_BUTTON">
-																		<size>30,-1</size>
-																		<label>+</label>
-																		<default>0</default>
-																	</object>
-																</object>
-																<object class="sizeritem">
-																	<option>0</option>
-																	<flag>wxALL</flag>
-																	<border>5</border>
-																	<object class="wxButton" name="ID_DEL_SINE_BUTTON">
-																		<size>30,-1</size>
-																		<label>-</label>
-																		<default>0</default>
-																	</object>
-																</object>
-															</object>
-														</object>
-														<object class="sizeritem">
-															<option>1</option>
-															<flag>wxEXPAND</flag>
-															<border>0</border>
-															<object class="wxBoxSizer">
-																<orient>wxVERTICAL</orient>
-																<object class="sizeritem">
-																	<option>0</option>
-																	<flag>wxALIGN_RIGHT</flag>
-																	<border>3</border>
-																	<object class="wxBoxSizer">
-																		<orient>wxHORIZONTAL</orient>
-																		<object class="sizeritem">
-																			<option>0</option>
-																			<flag>wxALL</flag>
-																			<border>1</border>
-																			<object class="wxStaticText" name="m_staticText8">
-																				<size>60,-1</size>
-																				<label>Frequency</label>
-																				<wrap>-1</wrap>
-																			</object>
-																		</object>
-																		<object class="sizeritem">
-																			<option>1</option>
-																			<flag></flag>
-																			<border>3</border>
-																			<object class="wxTextCtrl" name="ID_NEW_SINE_FREQ">
-																				<size>100,-1</size>
-																				<value>1000</value>
-																			</object>
-																		</object>
-																	</object>
-																</object>
-																<object class="sizeritem">
-																	<option>0</option>
-																	<flag>wxALIGN_RIGHT</flag>
-																	<border>3</border>
-																	<object class="wxBoxSizer">
-																		<orient>wxHORIZONTAL</orient>
-																		<object class="sizeritem">
-																			<option>0</option>
-																			<flag>wxALL</flag>
-																			<border>1</border>
-																			<object class="wxStaticText" name="m_staticText9">
-																				<size>60,-1</size>
-																				<label>Amplitude</label>
-																				<wrap>-1</wrap>
-																			</object>
-																		</object>
-																		<object class="sizeritem">
-																			<option>1</option>
-																			<flag></flag>
-																			<border>3</border>
-																			<object class="wxTextCtrl" name="ID_NEW_SINE_AMPLITUDE">
-																				<size>100,-1</size>
-																				<value>-6</value>
-																			</object>
-																		</object>
-																	</object>
-																</object>
-																<object class="sizeritem">
-																	<option>0</option>
-																	<flag>wxALIGN_RIGHT</flag>
-																	<border>3</border>
-																	<object class="wxBoxSizer">
-																		<orient>wxHORIZONTAL</orient>
-																		<object class="sizeritem">
-																			<option>0</option>
-																			<flag>wxALL</flag>
-																			<border>1</border>
-																			<object class="wxStaticText" name="m_staticText10">
-																				<size>60,-1</size>
-																				<label>Phase</label>
-																				<wrap>-1</wrap>
-																			</object>
-																		</object>
-																		<object class="sizeritem">
-																			<option>1</option>
-																			<flag></flag>
-																			<border>3</border>
-																			<object class="wxTextCtrl" name="ID_NEW_SINE_PHASE">
-																				<size>100,-1</size>
-																				<value>0</value>
-																			</object>
-																		</object>
-																	</object>
-																</object>
-															</object>
-														</object>
-													</object>
-												</object>
-											</object>
-										</object>
-										<object class="sizeritem">
-											<option>0</option>
-											<flag>wxALL|wxEXPAND</flag>
-											<border>5</border>
-											<object class="wxStaticBoxSizer">
-												<orient>wxVERTICAL</orient>
-												<label>Selected sine parameters</label>
-												<object class="sizeritem">
-													<option>0</option>
-													<flag>wxALIGN_RIGHT</flag>
-													<border>0</border>
-													<object class="wxStaticText" name="m_staticText11">
-														<label>Frequency</label>
-														<wrap>-1</wrap>
-													</object>
-												</object>
-												<object class="sizeritem">
-													<option>0</option>
-													<flag>wxEXPAND</flag>
-													<border>1</border>
-													<object class="wxBoxSizer">
-														<orient>wxHORIZONTAL</orient>
-														<object class="sizeritem">
-															<option>1</option>
-															<flag>wxALL|wxEXPAND</flag>
-															<border>2</border>
-															<object class="wxSlider" name="ID_FREQUENCY_SLIDER">
-																<style>wxSL_HORIZONTAL</style>
-																<value>0</value>
-																<min>5</min>
-																<max>50000</max>
-															</object>
-														</object>
-														<object class="sizeritem">
-															<option>0</option>
-															<flag>wxALL</flag>
-															<border>2</border>
-															<object class="wxTextCtrl" name="ID_CUR_FREQ_VALUE">
-																<style>wxTE_PROCESS_ENTER</style>
-																<value></value>
-															</object>
-														</object>
-													</object>
-												</object>
-												<object class="sizeritem">
-													<option>0</option>
-													<flag>wxALIGN_RIGHT</flag>
-													<border>5</border>
-													<object class="wxStaticText" name="m_staticText12">
-														<label>Amplitude</label>
-														<wrap>-1</wrap>
-													</object>
-												</object>
-												<object class="sizeritem">
-													<option>0</option>
-													<flag>wxEXPAND</flag>
-													<border>1</border>
-													<object class="wxBoxSizer">
-														<orient>wxHORIZONTAL</orient>
-														<object class="sizeritem">
-															<option>1</option>
-															<flag>wxALL|wxEXPAND</flag>
-															<border>2</border>
-															<object class="wxSlider" name="ID_AMPLITUDE_SLIDER">
-																<style>wxSL_HORIZONTAL|wxSL_INVERSE</style>
-																<value>0</value>
-																<min>-200</min>
-																<max>0</max>
-															</object>
-														</object>
-														<object class="sizeritem">
-															<option>0</option>
-															<flag>wxALL</flag>
-															<border>2</border>
-															<object class="wxTextCtrl" name="ID_CUR_AMP_VALUE">
-																<style>wxTE_PROCESS_ENTER</style>
-																<value></value>
-															</object>
-														</object>
-													</object>
-												</object>
-												<object class="sizeritem">
-													<option>0</option>
-													<flag>wxALIGN_RIGHT</flag>
-													<border>5</border>
-													<object class="wxStaticText" name="m_staticText13">
-														<label>Phase</label>
-														<wrap>-1</wrap>
-													</object>
-												</object>
-												<object class="sizeritem">
-													<option>0</option>
-													<flag>wxEXPAND</flag>
-													<border>1</border>
-													<object class="wxBoxSizer">
-														<orient>wxHORIZONTAL</orient>
-														<object class="sizeritem">
-															<option>1</option>
-															<flag>wxALL|wxEXPAND</flag>
-															<border>2</border>
-															<object class="wxSlider" name="ID_PHASE_SLIDER">
-																<style>wxSL_HORIZONTAL</style>
-																<value>0</value>
-																<min>-180</min>
-																<max>180</max>
-															</object>
-														</object>
-														<object class="sizeritem">
-															<option>0</option>
-															<flag>wxALL</flag>
-															<border>2</border>
-															<object class="wxTextCtrl" name="ID_CUR_PHASE_VALUE">
-																<style>wxTE_PROCESS_ENTER</style>
-																<value></value>
-															</object>
-														</object>
-													</object>
-												</object>
-											</object>
 										</object>
 									</object>
+									<flag>wxALL|wxEXPAND</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxBoxSizer">
+										<object class="sizeritem">
+											<object class="wxCheckBox" name="ID_CHECKBOX_WAVEFORM">
+												<label>Show waveform</label>
+											</object>
+											<flag>wxALL</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxButton" name="ID_BUTTON_SAVE_WAV">
+												<label>Save sample</label>
+											</object>
+											<border>5</border>
+										</object>
+									</object>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxStaticBoxSizer">
+										<label>Components list</label>
+										<orient>wxVERTICAL</orient>
+										<object class="sizeritem">
+											<object class="wxBoxSizer">
+												<object class="sizeritem">
+													<object class="wxListBox" name="ID_LIST_COMPONENTS">
+														<style>wxLB_SINGLE</style>
+													</object>
+													<flag>wxALL|wxEXPAND</flag>
+													<border>5</border>
+													<option>1</option>
+												</object>
+												<object class="sizeritem">
+													<object class="wxButton" name="ID_DEL_COMP_BUTTON">
+														<label>-</label>
+														<size>27,23</size>
+													</object>
+													<flag>wxALL</flag>
+													<border>5</border>
+												</object>
+											</object>
+											<flag>wxALL|wxEXPAND</flag>
+											<option>1</option>
+										</object>
+										<object class="sizeritem">
+											<object class="wxBoxSizer">
+												<object class="sizeritem">
+													<object class="wxStaticBoxSizer">
+														<label>Sine</label>
+														<orient>wxVERTICAL</orient>
+														<object class="sizeritem">
+															<object class="wxBoxSizer">
+																<object class="sizeritem">
+																	<object class="wxBoxSizer">
+																		<orient>wxVERTICAL</orient>
+																		<object class="sizeritem">
+																			<object class="wxButton" name="ID_ADD_SINE_BUTTON">
+																				<label>+</label>
+																				<size>30,-1</size>
+																			</object>
+																			<flag>wxALL</flag>
+																			<border>5</border>
+																		</object>
+																	</object>
+																	<flag>wxEXPAND</flag>
+																</object>
+																<object class="sizeritem">
+																	<object class="wxBoxSizer">
+																		<orient>wxVERTICAL</orient>
+																		<object class="sizeritem">
+																			<object class="wxBoxSizer">
+																				<object class="sizeritem">
+																					<object class="wxStaticText" name="m_staticText8">
+																						<label>Frequency</label>
+																						<size>60,-1</size>
+																					</object>
+																					<flag>wxALL</flag>
+																					<border>1</border>
+																				</object>
+																				<object class="sizeritem">
+																					<object class="wxTextCtrl" name="ID_NEW_SINE_FREQ">
+																						<value>1000</value>
+																						<size>60,-1</size>
+																					</object>
+																					<border>3</border>
+																					<option>1</option>
+																				</object>
+																			</object>
+																			<flag>wxALIGN_RIGHT</flag>
+																			<border>3</border>
+																		</object>
+																		<object class="sizeritem">
+																			<object class="wxBoxSizer">
+																				<object class="sizeritem">
+																					<object class="wxStaticText" name="m_staticText9">
+																						<label>Amplitude</label>
+																						<size>60,-1</size>
+																					</object>
+																					<flag>wxALL</flag>
+																					<border>1</border>
+																				</object>
+																				<object class="sizeritem">
+																					<object class="wxTextCtrl" name="ID_NEW_SINE_AMPLITUDE">
+																						<value>-6</value>
+																						<size>60,-1</size>
+																					</object>
+																					<border>3</border>
+																					<option>1</option>
+																				</object>
+																			</object>
+																			<flag>wxALIGN_RIGHT</flag>
+																			<border>3</border>
+																		</object>
+																		<object class="sizeritem">
+																			<object class="wxBoxSizer">
+																				<object class="sizeritem">
+																					<object class="wxStaticText" name="m_staticText10">
+																						<label>Phase</label>
+																						<size>60,-1</size>
+																					</object>
+																					<flag>wxALL</flag>
+																					<border>1</border>
+																				</object>
+																				<object class="sizeritem">
+																					<object class="wxTextCtrl" name="ID_NEW_SINE_PHASE">
+																						<value>0</value>
+																						<size>60,-1</size>
+																					</object>
+																					<border>3</border>
+																					<option>1</option>
+																				</object>
+																			</object>
+																			<flag>wxALIGN_RIGHT</flag>
+																			<border>3</border>
+																		</object>
+																	</object>
+																	<flag>wxEXPAND</flag>
+																	<option>1</option>
+																</object>
+															</object>
+															<flag>wxEXPAND</flag>
+															<option>1</option>
+														</object>
+													</object>
+													<flag>wxALL|wxEXPAND</flag>
+													<border>5</border>
+												</object>
+												<object class="sizeritem">
+													<object class="wxStaticBoxSizer">
+														<label>Constant</label>
+														<orient>wxVERTICAL</orient>
+														<object class="sizeritem">
+															<object class="wxBoxSizer">
+																<object class="sizeritem">
+																	<object class="wxBoxSizer">
+																		<orient>wxVERTICAL</orient>
+																		<object class="sizeritem">
+																			<object class="wxButton" name="ID_ADD_CONST_BUTTON">
+																				<label>+</label>
+																				<size>30,-1</size>
+																			</object>
+																			<flag>wxALL</flag>
+																			<border>5</border>
+																		</object>
+																	</object>
+																	<flag>wxEXPAND</flag>
+																</object>
+																<object class="sizeritem">
+																	<object class="wxBoxSizer">
+																		<orient>wxVERTICAL</orient>
+																		<object class="sizeritem">
+																			<object class="wxBoxSizer">
+																				<object class="sizeritem">
+																					<object class="wxStaticText" name="ID_STATICTEXT1">
+																						<label>Value, HEX</label>
+																						<size>60,-1</size>
+																					</object>
+																					<flag>wxALL</flag>
+																					<border>1</border>
+																				</object>
+																				<object class="sizeritem">
+																					<object class="wxTextCtrl" name="ID_NEW_CONST_VALUE">
+																						<value>0x1000</value>
+																						<size>60,-1</size>
+																					</object>
+																					<border>3</border>
+																					<option>1</option>
+																				</object>
+																			</object>
+																			<flag>wxALIGN_RIGHT</flag>
+																			<border>3</border>
+																		</object>
+																	</object>
+																	<flag>wxEXPAND</flag>
+																	<option>1</option>
+																</object>
+															</object>
+															<flag>wxEXPAND</flag>
+															<option>1</option>
+														</object>
+													</object>
+													<flag>wxALL|wxEXPAND</flag>
+													<border>5</border>
+												</object>
+											</object>
+											<flag>wxALL|wxALIGN_LEFT</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxStaticBoxSizer">
+												<label>Selected sine parameters</label>
+												<orient>wxVERTICAL</orient>
+												<object class="sizeritem">
+													<object class="wxStaticText" name="m_staticText11">
+														<label>Frequency</label>
+													</object>
+													<flag>wxALIGN_RIGHT</flag>
+												</object>
+												<object class="sizeritem">
+													<object class="wxBoxSizer">
+														<object class="sizeritem">
+															<object class="wxSlider" name="ID_FREQUENCY_SLIDER">
+																<min>5</min>
+																<max>50000</max>
+																<style>wxSL_HORIZONTAL</style>
+															</object>
+															<flag>wxALL|wxEXPAND</flag>
+															<border>2</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxTextCtrl" name="ID_CUR_FREQ_VALUE">
+																<style>wxTE_PROCESS_ENTER</style>
+															</object>
+															<flag>wxALL</flag>
+															<border>2</border>
+														</object>
+													</object>
+													<flag>wxEXPAND</flag>
+													<border>1</border>
+												</object>
+												<object class="sizeritem">
+													<object class="wxStaticText" name="m_staticText12">
+														<label>Amplitude</label>
+													</object>
+													<flag>wxALIGN_RIGHT</flag>
+													<border>5</border>
+												</object>
+												<object class="sizeritem">
+													<object class="wxBoxSizer">
+														<object class="sizeritem">
+															<object class="wxSlider" name="ID_AMPLITUDE_SLIDER">
+																<min>-200</min>
+																<max>0</max>
+																<style>wxSL_HORIZONTAL|wxSL_INVERSE</style>
+															</object>
+															<flag>wxALL|wxEXPAND</flag>
+															<border>2</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxTextCtrl" name="ID_CUR_AMP_VALUE">
+																<style>wxTE_PROCESS_ENTER</style>
+															</object>
+															<flag>wxALL</flag>
+															<border>2</border>
+														</object>
+													</object>
+													<flag>wxEXPAND</flag>
+													<border>1</border>
+												</object>
+												<object class="sizeritem">
+													<object class="wxStaticText" name="m_staticText13">
+														<label>Phase</label>
+													</object>
+													<flag>wxALIGN_RIGHT</flag>
+													<border>5</border>
+												</object>
+												<object class="sizeritem">
+													<object class="wxBoxSizer">
+														<object class="sizeritem">
+															<object class="wxSlider" name="ID_PHASE_SLIDER">
+																<min>-180</min>
+																<max>180</max>
+																<style>wxSL_HORIZONTAL</style>
+															</object>
+															<flag>wxALL|wxEXPAND</flag>
+															<border>2</border>
+															<option>1</option>
+														</object>
+														<object class="sizeritem">
+															<object class="wxTextCtrl" name="ID_CUR_PHASE_VALUE">
+																<style>wxTE_PROCESS_ENTER</style>
+															</object>
+															<flag>wxALL</flag>
+															<border>2</border>
+														</object>
+													</object>
+													<flag>wxEXPAND</flag>
+													<border>1</border>
+												</object>
+											</object>
+											<flag>wxALL|wxEXPAND</flag>
+											<border>5</border>
+										</object>
+									</object>
+									<flag>wxALL|wxEXPAND</flag>
+									<border>5</border>
+									<option>1</option>
 								</object>
 							</object>
 						</object>
+						<label>Main</label>
+						<selected>1</selected>
 					</object>
 					<object class="notebookpage">
-						<label>Hardware setup</label>
-						<selected>0</selected>
 						<object class="wxPanel" name="ID_PANEL_SETUP">
 							<style>wxNO_BORDER|wxTAB_TRAVERSAL</style>
 							<object class="wxBoxSizer">
 								<orient>wxVERTICAL</orient>
 								<object class="sizeritem">
-									<option>0</option>
-									<flag>wxGROW|wxALL</flag>
-									<border>5</border>
 									<object class="wxStaticBoxSizer">
-										<orient>wxVERTICAL</orient>
 										<label>Output device</label>
+										<orient>wxVERTICAL</orient>
 										<object class="sizeritem">
-											<option>0</option>
-											<flag>wxGROW|wxALL</flag>
-											<border>5</border>
 											<object class="wxChoice" name="ID_CHOICE_OUT_DEVICE">
 												<selection>0</selection>
-												<content />
 											</object>
+											<flag>wxALL|wxEXPAND</flag>
+											<border>5</border>
 										</object>
 										<object class="sizeritem">
-											<option>0</option>
-											<flag>wxALIGN_RIGHT|wxALL</flag>
-											<border>5</border>
 											<object class="wxBoxSizer">
-												<orient>wxHORIZONTAL</orient>
 												<object class="sizeritem">
-													<option>0</option>
-													<flag>wxALL</flag>
-													<border>5</border>
 													<object class="wxStaticText" name="wxID_STATIC1">
 														<label>Sample rate</label>
-														<wrap>-1</wrap>
 													</object>
+													<flag>wxALL</flag>
+													<border>5</border>
 												</object>
 												<object class="sizeritem">
-													<option>0</option>
-													<flag>wxGROW|wxALL</flag>
-													<border>5</border>
 													<object class="wxChoice" name="ID_CHOICE_OUT_FREQ">
 														<selection>0</selection>
-														<content />
 													</object>
+													<flag>wxALL|wxEXPAND</flag>
+													<border>5</border>
 												</object>
 											</object>
+											<flag>wxALL|wxALIGN_RIGHT</flag>
+											<border>5</border>
 										</object>
 										<object class="sizeritem">
-											<option>0</option>
-											<flag>wxALIGN_RIGHT|wxALL</flag>
-											<border>5</border>
 											<object class="wxBoxSizer">
-												<orient>wxHORIZONTAL</orient>
 												<object class="sizeritem">
-													<option>0</option>
-													<flag>wxALL</flag>
-													<border>5</border>
 													<object class="wxStaticText" name="wxID_STATIC2">
 														<label>Bit depth</label>
-														<wrap>-1</wrap>
 													</object>
+													<flag>wxALL</flag>
+													<border>5</border>
 												</object>
 												<object class="sizeritem">
-													<option>0</option>
-													<flag>wxGROW|wxALL</flag>
-													<border>5</border>
 													<object class="wxChoice" name="ID_CHOICE_OUT_DEPTH">
-														<selection>0</selection>
 														<content>
 															<item>16</item>
 															<item>24</item>
 															<item>32</item>
 														</content>
+														<selection>0</selection>
 													</object>
+													<flag>wxALL|wxEXPAND</flag>
+													<border>5</border>
 												</object>
 											</object>
+											<flag>wxALL|wxALIGN_RIGHT</flag>
+											<border>5</border>
 										</object>
 									</object>
+									<flag>wxALL|wxEXPAND</flag>
+									<border>5</border>
 								</object>
 								<object class="sizeritem">
-									<option>0</option>
-									<flag>wxGROW|wxALL</flag>
-									<border>5</border>
 									<object class="wxStaticBoxSizer">
-										<orient>wxVERTICAL</orient>
 										<label>Input device</label>
+										<orient>wxVERTICAL</orient>
 										<object class="sizeritem">
-											<option>0</option>
-											<flag>wxGROW|wxALL</flag>
-											<border>5</border>
 											<object class="wxChoice" name="ID_CHOICE_IN_DEVICE">
 												<selection>0</selection>
-												<content />
 											</object>
+											<flag>wxALL|wxEXPAND</flag>
+											<border>5</border>
 										</object>
 										<object class="sizeritem">
-											<option>0</option>
-											<flag>wxALIGN_RIGHT|wxALL</flag>
-											<border>5</border>
 											<object class="wxBoxSizer">
-												<orient>wxHORIZONTAL</orient>
 												<object class="sizeritem">
-													<option>0</option>
-													<flag>wxALL</flag>
-													<border>5</border>
 													<object class="wxStaticText" name="wxID_STATIC11">
 														<label>Sample rate</label>
-														<wrap>-1</wrap>
 													</object>
-												</object>
-												<object class="sizeritem">
-													<option>0</option>
-													<flag>wxGROW|wxALL</flag>
-													<border>5</border>
-													<object class="wxChoice" name="ID_CHOICE_IN_FREQ">
-														<selection>0</selection>
-														<content />
-													</object>
-												</object>
-											</object>
-										</object>
-										<object class="sizeritem">
-											<option>0</option>
-											<flag>wxALIGN_RIGHT|wxALL</flag>
-											<border>5</border>
-											<object class="wxBoxSizer">
-												<orient>wxHORIZONTAL</orient>
-												<object class="sizeritem">
-													<option>0</option>
 													<flag>wxALL</flag>
 													<border>5</border>
-													<object class="wxStaticText" name="wxID_STATIC21">
-														<label>Bit depth</label>
-														<wrap>-1</wrap>
-													</object>
 												</object>
 												<object class="sizeritem">
-													<option>0</option>
-													<flag>wxGROW|wxALL</flag>
-													<border>5</border>
-													<object class="wxChoice" name="ID_CHOICE_IN_DEPTH">
+													<object class="wxChoice" name="ID_CHOICE_IN_FREQ">
 														<selection>0</selection>
+													</object>
+													<flag>wxALL|wxEXPAND</flag>
+													<border>5</border>
+												</object>
+											</object>
+											<flag>wxALL|wxALIGN_RIGHT</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxBoxSizer">
+												<object class="sizeritem">
+													<object class="wxStaticText" name="wxID_STATIC21">
+														<label>Bit depth</label>
+													</object>
+													<flag>wxALL</flag>
+													<border>5</border>
+												</object>
+												<object class="sizeritem">
+													<object class="wxChoice" name="ID_CHOICE_IN_DEPTH">
 														<content>
 															<item>16</item>
 															<item>24</item>
 															<item>32</item>
 														</content>
+														<selection>0</selection>
 													</object>
+													<flag>wxALL|wxEXPAND</flag>
+													<border>5</border>
 												</object>
 											</object>
+											<flag>wxALL|wxALIGN_RIGHT</flag>
+											<border>5</border>
 										</object>
 									</object>
+									<flag>wxALL|wxEXPAND</flag>
+									<border>5</border>
 								</object>
 							</object>
 						</object>
+						<label>Hardware setup</label>
 					</object>
 					<object class="notebookpage">
-						<label>FFT setup</label>
-						<selected>0</selected>
 						<object class="wxPanel" name="ID_PANEL_FFT">
 							<style>wxNO_BORDER|wxTAB_TRAVERSAL</style>
 							<object class="wxBoxSizer">
 								<orient>wxVERTICAL</orient>
 								<object class="sizeritem">
-									<option>0</option>
-									<flag>wxALL|wxEXPAND</flag>
-									<border>5</border>
 									<object class="wxStaticBoxSizer">
-										<orient>wxVERTICAL</orient>
 										<label>FFT</label>
+										<orient>wxVERTICAL</orient>
 										<object class="sizeritem">
-											<option>0</option>
-											<flag>wxALIGN_RIGHT|wxALL</flag>
-											<border>5</border>
 											<object class="wxBoxSizer">
-												<orient>wxHORIZONTAL</orient>
 												<object class="sizeritem">
-													<option>1</option>
-													<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
-													<border>5</border>
 													<object class="wxStaticText" name="wxID_STATIC5">
 														<label>FFT size</label>
-														<wrap>-1</wrap>
 													</object>
+													<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
+													<border>5</border>
+													<option>1</option>
 												</object>
 												<object class="sizeritem">
-													<option>0</option>
-													<flag>wxALL</flag>
-													<border>5</border>
 													<object class="wxChoice" name="ID_CHOICE_FFT_SIZE">
-														<selection>6</selection>
 														<content>
 															<item>256</item>
 															<item>512</item>
@@ -592,31 +538,27 @@
 															<item>524288</item>
 															<item>1048576</item>
 														</content>
+														<selection>6</selection>
 													</object>
-												</object>
-											</object>
-										</object>
-										<object class="sizeritem">
-											<option>0</option>
-											<flag>wxALL|wxALIGN_RIGHT</flag>
-											<border>5</border>
-											<object class="wxBoxSizer">
-												<orient>wxHORIZONTAL</orient>
-												<object class="sizeritem">
-													<option>1</option>
-													<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
-													<border>5</border>
-													<object class="wxStaticText" name="wxID_STATIC6">
-														<label>Window</label>
-														<wrap>0</wrap>
-													</object>
-												</object>
-												<object class="sizeritem">
-													<option>0</option>
 													<flag>wxALL</flag>
 													<border>5</border>
+												</object>
+											</object>
+											<flag>wxALL|wxALIGN_RIGHT</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxBoxSizer">
+												<object class="sizeritem">
+													<object class="wxStaticText" name="wxID_STATIC6">
+														<label>Window</label>
+													</object>
+													<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
+													<border>5</border>
+													<option>1</option>
+												</object>
+												<object class="sizeritem">
 													<object class="wxChoice" name="ID_CHOICE_WND_FUNC">
-														<selection>0</selection>
 														<content>
 															<item>Hanning</item>
 															<item>Hamming</item>
@@ -627,115 +569,115 @@
 															<item>Rectangle</item>
 															<item>Flat-top</item>
 														</content>
+														<selection>0</selection>
 													</object>
+													<flag>wxALL</flag>
+													<border>5</border>
 												</object>
 											</object>
+											<flag>wxALL|wxALIGN_RIGHT</flag>
+											<border>5</border>
 										</object>
 									</object>
+									<flag>wxALL|wxEXPAND</flag>
+									<border>5</border>
 								</object>
 							</object>
 						</object>
+						<label>FFT setup</label>
 					</object>
 					<object class="notebookpage">
-						<label>View setup</label>
-						<selected>0</selected>
 						<object class="wxPanel" name="ID_PANEL_VIEW">
 							<style>wxNO_BORDER|wxTAB_TRAVERSAL</style>
 							<object class="wxBoxSizer">
 								<orient>wxVERTICAL</orient>
 								<object class="sizeritem">
-									<option>0</option>
-									<flag>wxALL|wxEXPAND</flag>
-									<border>5</border>
 									<object class="wxStaticBoxSizer">
-										<orient>wxVERTICAL</orient>
 										<label>Scale</label>
+										<orient>wxVERTICAL</orient>
 										<object class="sizeritem">
-											<option>0</option>
-											<flag>wxALIGN_RIGHT|wxALL</flag>
-											<border>5</border>
 											<object class="wxBoxSizer">
-												<orient>wxHORIZONTAL</orient>
 												<object class="sizeritem">
-													<option>1</option>
-													<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
-													<border>5</border>
 													<object class="wxStaticText" name="wxID_STATIC51">
 														<label>Max value</label>
-														<wrap>-1</wrap>
 													</object>
+													<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
+													<border>5</border>
+													<option>1</option>
 												</object>
 												<object class="sizeritem">
-													<option>0</option>
-													<flag>wxALL</flag>
-													<border>5</border>
 													<object class="wxSpinCtrl" name="ID_MAX_VALUE_VIEW">
-														<style>wxSP_ARROW_KEYS</style>
 														<value>10</value>
 														<min>-100</min>
 														<max>1000</max>
+														<style>wxSP_ARROW_KEYS</style>
 													</object>
-												</object>
-											</object>
-										</object>
-										<object class="sizeritem">
-											<option>0</option>
-											<flag>wxALL|wxALIGN_RIGHT</flag>
-											<border>5</border>
-											<object class="wxBoxSizer">
-												<orient>wxHORIZONTAL</orient>
-												<object class="sizeritem">
-													<option>1</option>
-													<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
-													<border>5</border>
-													<object class="wxStaticText" name="wxID_STATIC61">
-														<label>Min value</label>
-														<wrap>-1</wrap>
-													</object>
-												</object>
-												<object class="sizeritem">
-													<option>0</option>
 													<flag>wxALL</flag>
 													<border>5</border>
+												</object>
+											</object>
+											<flag>wxALL|wxALIGN_RIGHT</flag>
+											<border>5</border>
+										</object>
+										<object class="sizeritem">
+											<object class="wxBoxSizer">
+												<object class="sizeritem">
+													<object class="wxStaticText" name="wxID_STATIC61">
+														<label>Min value</label>
+													</object>
+													<flag>wxALL|wxALIGN_CENTER_VERTICAL</flag>
+													<border>5</border>
+													<option>1</option>
+												</object>
+												<object class="sizeritem">
 													<object class="wxSpinCtrl" name="ID_MIN_VALUE_VIEW">
-														<style>wxSP_ARROW_KEYS</style>
 														<value>-120</value>
 														<min>-300</min>
 														<max>0</max>
+														<style>wxSP_ARROW_KEYS</style>
 													</object>
+													<flag>wxALL</flag>
+													<border>5</border>
 												</object>
 											</object>
+											<flag>wxALL|wxALIGN_RIGHT</flag>
+											<border>5</border>
 										</object>
 									</object>
+									<flag>wxALL|wxEXPAND</flag>
+									<border>5</border>
 								</object>
 							</object>
 						</object>
+						<label>View setup</label>
 					</object>
 				</object>
+				<flag>wxEXPAND</flag>
+				<border>5</border>
 			</object>
 			<object class="sizeritem">
-				<option>1</option>
-				<flag>wxEXPAND|wxALL</flag>
-				<border>5</border>
 				<object class="wxBoxSizer">
-					<minsize>400,-1</minsize>
 					<orient>wxVERTICAL</orient>
 					<object class="sizeritem">
-						<option>0</option>
-						<flag>wxALIGN_LEFT|wxALL</flag>
-						<border>5</border>
 						<object class="wxStaticText" name="wxID_STATIC">
 							<label>Spectrum</label>
-							<wrap>0</wrap>
 						</object>
+						<flag>wxALL|wxALIGN_LEFT</flag>
+						<border>5</border>
 					</object>
 					<object class="sizeritem">
-						<option>1</option>
-						<flag>wxEXPAND|wxALL</flag>
+						<object class="unknown" name="ID_PANEL_SIGNAL">
+							<style></style>
+							<style></style>
+						</object>
+						<flag>wxALL|wxEXPAND</flag>
 						<border>5</border>
-						<object class="unknown" name="ID_PANEL_SIGNAL" />
+						<option>1</option>
 					</object>
 				</object>
+				<flag>wxALL|wxEXPAND</flag>
+				<border>5</border>
+				<option>1</option>
 			</object>
 		</object>
 	</object>

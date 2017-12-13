@@ -68,7 +68,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>.\lib\coredsp\Release;.\lib\portaudiocpp\build\vc14\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>.\lib\portaudiocpp\build\vc14\Release;$(OutputPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>wxmsw31u_xrc.lib;wxmsw31u_richtext.lib;wxmsw31u_aui.lib;wxmsw31u_html.lib;wxmsw31u_stc.lib;wxmsw31u_propgrid.lib;wxmsw31u_ribbon.lib;wxmsw31u_core.lib;wxbase31u.lib;tiff.lib;jpeg.lib;libpng16.lib;zlib.lib;wxregexu.lib;wxmsw31u_adv.lib;wxbase31u_net.lib;wxbase31u_xml.lib;expat.lib;portaudio.lib;portaudiocpp.lib;coredsp.lib;kernel32.lib;user32.lib;gdi32.lib;comdlg32.lib;winspool.lib;winmm.lib;shell32.lib;comctl32.lib;ole32.lib;oleaut32.lib;uuid.lib;rpcrt4.lib;advapi32.lib;wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
@@ -90,7 +90,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>.\lib\portaudiocpp\build\vc14\Debug;.\lib\coredsp\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>.\lib\portaudiocpp\build\vc14\Debug;$(OutputPath);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>wxmsw31ud_xrc.lib;wxmsw31ud_richtext.lib;wxmsw31ud_aui.lib;wxmsw31ud_html.lib;wxmsw31ud_stc.lib;wxmsw31ud_propgrid.lib;wxmsw31ud_ribbon.lib;wxmsw31ud_core.lib;wxbase31ud.lib;tiffd.lib;jpeg.lib;libpng16d.lib;zlibd.lib;wxregexud.lib;wxmsw31ud_adv.lib;wxbase31ud_net.lib;wxbase31ud_xml.lib;portaudio.lib;portaudiocpp.lib;coredsp.lib;expat.lib;kernel32.lib;user32.lib;gdi32.lib;comdlg32.lib;winspool.lib;winmm.lib;shell32.lib;comctl32.lib;ole32.lib;oleaut32.lib;uuid.lib;rpcrt4.lib;advapi32.lib;wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
@@ -100,6 +100,10 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BaseFunction.h" />
+    <ClInclude Include="ConstantFunction.h" />
+    <ClInclude Include="FunctionGenerator.h" />
+    <ClInclude Include="SineFunction.h" />
     <ClInclude Include="sinegen.h" />
     <ClInclude Include="sinegenapp.h" />
   </ItemGroup>

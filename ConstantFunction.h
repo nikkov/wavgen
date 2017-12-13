@@ -1,86 +1,52 @@
 #ifndef __CONSTANT_FUNCTION_HEADER__
 #define __CONSTANT_FUNCTION_HEADER__
-#include "SineFunction.h"
+#include "BaseFunction.h"
 
 class ConstantFunctionGenerator : public BaseFunctionGenerator
 {
 protected:
-	double m_amplitudeDb;
-	double m_sampleRate;
-	portaudio::SampleDataFormat m_format;
+	int m_amplitudeDb;
 
 	virtual void UpdateFormat(portaudio::SampleDataFormat format)
 	{
 		m_format = format;
 	}
 
-	virtual void UpdateSampleRate(double samplerate)
-	{
-		m_sampleRate = samplerate;
-	}
+	virtual void UpdateSampleRate(double samplerate) {}
 
-	virtual void UpdatePhase(double phase)
-	{
-	}
-	virtual void UpdateFreq(double freq)
-	{
-	}
+	virtual void UpdatePhase(double phase) {}
+	virtual void UpdateFreq(double freq) {}
 
-	virtual void UpdateAmplitude(double amplitude)
-	{
-	}
+	virtual void UpdateAmplitude(double amplitude) {}
 
 	virtual const wxString FuncNameInternal()
 	{
-		wxString name = wxString::Format("Constant");
+		wxString name = wxString::Format("Constant 0x%X", m_amplitudeDb);
 		return name;
 	}
 
+	virtual double GetPhaseInternal() {	return 0; }
+	virtual double GetFreqInternal() { return 0.0; }
+	virtual double GetAmplitudeInternal() { return 1.0; }
 
-	virtual double GetPhaseInternal()
-	{
-		return 0;
-	}
-	virtual double GetFreqInternal()
-	{
-		return 0.0;
-	}
-	virtual double GetAmplitudeInternal()
-	{
-		return 1.0;
-	}
-
-	virtual void ResetInternal()
-	{
-	}
-
-	double calcNextVal()
-	{
-		double result = 0.0;
-		
-		return result;
-	}
+	virtual void ResetInternal() {}
 
 	template<typename T>
 	int generateInternalTemplate(void *outputBuffer, unsigned long framesPerBuffer, bool needClear)
 	{
 		T **out = static_cast<T **>(outputBuffer);
-		if(needClear)
+		if (needClear)
 			for (unsigned int i = 0; i < framesPerBuffer; ++i)
 			{
-				double val = calcNextVal();
-				out[0][i] = (T)val;
-				out[1][i] = (T)val;
-
+				out[0][i] = (T)m_amplitudeDb;
+				out[1][i] = (T)m_amplitudeDb;
 			}
 		else
 			for (unsigned int i = 0; i < framesPerBuffer; ++i)
 			{
-				double val = calcNextVal();
-				out[0][i] += (T)val;
-				out[1][i] += (T)val;
+				out[0][i] += (T)m_amplitudeDb;
+				out[1][i] += (T)m_amplitudeDb;
 			}
-
 		return paContinue;
 	}
 
@@ -102,14 +68,13 @@ protected:
 
 	virtual double GenerateOneSampleInternal()
 	{
-		return calcNextVal();
+		return (double)m_amplitudeDb;
 	}
 
 public:
-	ConstantFunctionGenerator(portaudio::SampleDataFormat format, double sampleRate)
+	ConstantFunctionGenerator(portaudio::SampleDataFormat format, int value) : m_amplitudeDb(value)
 	{
 		UpdateFormat(format);
-		UpdateSampleRate(sampleRate);
 	}
 };
 
