@@ -18,7 +18,7 @@
 
 static double STANDARD_SAMPLE_RATES[] = {
 		8000.0, 9600.0, 11025.0, 12000.0, 16000.0, 22050.0, 24000.0, 32000.0,
-		44100.0, 48000.0, 88200.0, 96000.0, 192000.0, 384000.0, -1 }; // negative terminated list
+		44100.0, 48000.0, 88200.0, 96000.0, 176400.0, 192000.0, 352800.0, 384000.0, -1 }; // negative terminated list
 
 double GetMaxValueForFormat(portaudio::SampleDataFormat format)
 {
@@ -320,7 +320,11 @@ void SineGen::FillInOutDevices()
 		for(int i = 0; i < inDeviceNum; i++)
 		{
 			portaudio::Device& device = m_PaudioCl->GetDevice(true, i);
-			m_choiceInputDevice->Append(wxString::Format("[%s]%s", device.hostApi().name(), device.name()));
+
+			wxString u8name = wxString::Format(u8"[%s]%s", device.hostApi().name(), device.name());
+			wxString name((const char*)u8name.c_str(), wxConvUTF8);
+
+			m_choiceInputDevice->Append(name);
 			if(device.isSystemDefaultInputDevice())
 				defIndex = i;
 		}
